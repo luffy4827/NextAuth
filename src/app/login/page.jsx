@@ -2,6 +2,8 @@ import React from "react";
 import Layout from "@/layout/layout";
 import Head from "next/head";
 import Link from "next/link";
+import styles from "./page.module.css";
+import Image from "next/image";
 
 const Login = () => {
   return (
@@ -22,22 +24,45 @@ const Login = () => {
         {/* form */}
         <form className="flex flex-col gap-5">
           {/* inputs */}
-          <div>
-            <input type="email" name="email" placeholder="Email" />
+          <div className={styles.inputGroup}>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              className={styles.inputText}
+            />
           </div>
-          <div>
-            <input type="password" name="password" placeholder="Password" />
+          <div className={styles.inputGroup}>
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              className={styles.inputText}
+            />
           </div>
 
-          {/* buttons */}
+          {/* login buttons */}
           <div>
-            <button type="submit"> Login</button>
+            <button type="submit" className={styles.button}>
+              {" "}
+              Login
+            </button>
+          </div>
+          <div className={styles.orContainer}>
+            <hr className={styles.line}/>
+            <p className={styles.or}>OR</p>
           </div>
           <div>
-            <button type="submit"> Sign In with Google</button>
+            <button type="button" className={styles.buttonCustom}>
+              {" "}
+              Sign In with Google <Image src="/assets/google.svg" width={18} height={18} alt="" className="mx-2" />
+            </button>
           </div>
           <div>
-            <button type="submit"> Sign In with Github</button>
+            <button type="button" className={styles.buttonCustom}>
+              {" "}
+              Sign In with Github <Image src="/assets/github.svg" width={20} height={20} alt="" className="mx-2" />
+            </button>
           </div>
         </form>
 
