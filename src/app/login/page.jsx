@@ -1,11 +1,17 @@
+"use client"
+
 import React from "react";
 import Layout from "@/layout/layout";
 import Head from "next/head";
 import Link from "next/link";
 import styles from "./page.module.css";
 import Image from "next/image";
+import { HiFingerPrint, HiAtSymbol } from "react-icons/hi";
+import { useState } from "react";
 
 const Login = () => {
+  const [show, setShow] = useState(false);
+
   return (
     <Layout>
       <Head>
@@ -31,14 +37,30 @@ const Login = () => {
               placeholder="Email"
               className={styles.inputText}
             />
+
+            {/* icon */}
+            <span className="icon flex items-center px-4">
+              <HiAtSymbol size={20} />
+            </span>
           </div>
           <div className={styles.inputGroup}>
             <input
-              type="password"
+              type={`${show ? "text" : "password"}`}
               name="password"
               placeholder="Password"
               className={styles.inputText}
             />
+
+            {/* icon */}
+            <span
+              onClick={() => setShow(!show)}
+              className="icon flex items-center px-4"
+            >
+              <HiFingerPrint
+                className="cursor-pointer hover:text-indigo-500"
+                size={20}
+              />
+            </span>
           </div>
 
           {/* login buttons */}
@@ -49,19 +71,33 @@ const Login = () => {
             </button>
           </div>
           <div className={styles.orContainer}>
-            <hr className={styles.line}/>
+            <hr className={styles.line} />
             <p className={styles.or}>OR</p>
           </div>
           <div>
             <button type="button" className={styles.buttonCustom}>
               {" "}
-              Sign In with Google <Image src="/assets/google.svg" width={18} height={18} alt="" className="mx-2" />
+              Sign In with Google{" "}
+              <Image
+                src="/assets/google.svg"
+                width={18}
+                height={18}
+                alt=""
+                className="mx-2"
+              />
             </button>
           </div>
           <div>
             <button type="button" className={styles.buttonCustom}>
               {" "}
-              Sign In with Github <Image src="/assets/github.svg" width={20} height={20} alt="" className="mx-2" />
+              Sign In with Github{" "}
+              <Image
+                src="/assets/github.svg"
+                width={20}
+                height={20}
+                alt=""
+                className="mx-2"
+              />
             </button>
           </div>
         </form>
