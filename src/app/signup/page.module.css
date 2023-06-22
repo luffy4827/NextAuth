@@ -1,0 +1,47 @@
+.inputGroup {
+    @apply flex border rounded-xl;
+    position: relative;
+  }
+  
+  .inputText {
+    @apply w-full border-none rounded-xl py-4 px-6 bg-slate-50;
+    @apply focus:outline-none;
+  }
+  
+  .button {
+    @apply w-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-md;
+    @apply py-3 text-gray-50 hover:bg-gray-200 text-lg;
+  }
+  
+  .button:hover {
+    @apply bg-gradient-to-r from-gray-50 to-gray-100 border-blue-500;
+    @apply text-gray-700 border-[1px];
+  }
+  
+  /* .orContainer{
+      @apply w-full;
+      @apply py-3;
+  } */
+  
+  .line {
+    @apply w-full mt-6;
+  }
+  
+  .or {
+    @apply w-[30px] rounded-xl text-gray-400 bg-slate-50 rounded-2xl;
+    margin: -12px auto 10px;
+  }
+  
+  .buttonCustom {
+    @apply w-full border py-3 flex justify-center gap-2 hover:bg-gray-200 rounded-md;
+  }
+  
+  /* *refers to the all the descendent element */
+  .inputText + * {
+    color: #cbd5e1;
+  }
+  
+  .inputText:focus + * {
+    color: #6366f1;
+  }
+  
