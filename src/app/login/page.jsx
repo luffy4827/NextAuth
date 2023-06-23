@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React from "react";
 import Layout from "@/layout/layout";
@@ -8,9 +8,16 @@ import styles from "./page.module.css";
 import Image from "next/image";
 import { HiFingerPrint, HiAtSymbol } from "react-icons/hi";
 import { useState } from "react";
+import { signIn, signOut } from "next-auth/react";
 
 const Login = () => {
   const [show, setShow] = useState(false);
+
+  // handle Google Function
+  // async function handelGoogleSignin() {
+  //   signIn('google');
+  //   // , { callbackUrl: "http://localhost:3000" }
+  // }
 
   return (
     <Layout>
@@ -75,7 +82,14 @@ const Login = () => {
             <p className={styles.or}>OR</p>
           </div>
           <div>
-            <button type="button" className={styles.buttonCustom}>
+            <button
+              type="button"
+              className={styles.buttonCustom}
+              // onClick={handelGoogleSignin}
+              onClick={() => {
+                signIn("google");
+              }}
+            >
               {" "}
               Sign In with Google{" "}
               <Image
