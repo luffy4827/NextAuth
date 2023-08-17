@@ -87,7 +87,7 @@ const Login = () => {
               className={styles.buttonCustom}
               // onClick={handelGoogleSignin}
               onClick={() => {
-                signIn("google");
+                signIn("google", { callbackUrl: "http://localhost:3000" });
               }}
             >
               {" "}
@@ -102,7 +102,13 @@ const Login = () => {
             </button>
           </div>
           <div>
-            <button type="button" className={styles.buttonCustom}>
+            <button
+              type="button"
+              className={styles.buttonCustom}
+              onClick={() => {
+                signIn("github", { callbackUrl: "http://localhost:3000" });
+              }}
+            >
               {" "}
               Sign In with Github{" "}
               <Image
